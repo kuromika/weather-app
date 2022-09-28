@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _open_weather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./open-weather */ \"./src/open-weather.js\");\n/* harmony import */ var _time__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./time */ \"./src/time.js\");\n\n\n\nconsole.log((0,_open_weather__WEBPACK_IMPORTED_MODULE_0__.getWeatherData)('tokyo', 'metric'));\nconsole.log((0,_time__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(1));\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _open_weather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./open-weather */ \"./src/open-weather.js\");\n\n\n\nconsole.log((0,_open_weather__WEBPACK_IMPORTED_MODULE_0__.getCoordinates)('cali'));\nconsole.log((0,_open_weather__WEBPACK_IMPORTED_MODULE_0__.getDailyData)('tokyo'));\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ }),
 
@@ -26,17 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _ope
   \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getCoordinates\": () => (/* binding */ getCoordinates),\n/* harmony export */   \"getWeatherData\": () => (/* binding */ getWeatherData)\n/* harmony export */ });\n\nconst key = '38e5c0d2f94d0db0af3651a34cae725c';\nasync function getCoordinates(name) {\n    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${key}`);\n    const data = await response.json();\n    return [data[0].lat, data[0].lon];\n}\n\n// imperial = farenheit, metric = celsius\nasync function getWeatherData(name, units) {\n    const [lat, lon] = await getCoordinates(name);\n    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${key}`);\n    const data = await response.json();\n    return data;\n}\n\n\n\n\n//# sourceURL=webpack://weather-app/./src/open-weather.js?");
-
-/***/ }),
-
-/***/ "./src/time.js":
-/*!*********************!*\
-  !*** ./src/time.js ***!
-  \*********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nfunction epochToHuman(epoch) {\n    const date = new Date(epoch * 1000);\n    return date.toUTCString();\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (epochToHuman);\n\n//# sourceURL=webpack://weather-app/./src/time.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"getCoordinates\": () => (/* binding */ getCoordinates),\n/* harmony export */   \"getCurrentData\": () => (/* binding */ getCurrentData),\n/* harmony export */   \"getDailyData\": () => (/* binding */ getDailyData)\n/* harmony export */ });\n\nconst KEY = '38e5c0d2f94d0db0af3651a34cae725c';\nasync function getCoordinates(name) {\n    const response = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${name}&limit=5&appid=${KEY}`,{mode: \"cors\"});\n    const data = await response.json();\n    return data[0];\n}\n\n// imperial = farenheit, metric = celsius\nasync function getCurrentData(name, units = 'metric') {\n    const { lat, lon } = await getCoordinates(name);\n    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${KEY}`, {mode: 'cors'});\n    return response.json();\n}\n\nasync function getDailyData(name, units = 'metric') {\n    const { lat, lon } = await getCoordinates(name);\n    const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${KEY}`, { mode: 'cors' });\n    return response.json();\n}\n\n\n//# sourceURL=webpack://weather-app/./src/open-weather.js?");
 
 /***/ })
 
