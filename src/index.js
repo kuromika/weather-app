@@ -1,4 +1,5 @@
-import { getCoordinates, getWeatherData } from './open-weather';
-import epochToHuman from './time';
+import { getDailyData, getCoordinates } from './open-weather';
 
-console.log(epochToHuman(1));
+
+console.log(getCoordinates('cali'));
+console.log(getDailyData('tokyo'));
