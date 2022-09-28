@@ -1,5 +1,4 @@
-import { getDailyData, getCoordinates } from './open-weather';
+import CurrentWeather from "./currentWeather";
 
+const tokyo = CurrentWeather('tokyo');
 
-console.log(getCoordinates('cali'));
-console.log(getDailyData('tokyo'));

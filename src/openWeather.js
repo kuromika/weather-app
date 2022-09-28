@@ -18,4 +18,6 @@ async function getDailyData(name, units = 'metric') {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${KEY}`, { mode: 'cors' });
     return response.json();
 }
-export { getCoordinates, getCurrentData, getDailyData };
+
+
+export { getCoordinates, getCurrentData, getDailyData};
