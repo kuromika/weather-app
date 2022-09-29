@@ -4,13 +4,13 @@ import updateElement from "./updateElement";
 
 function updateConditions(feels, pressure, humidity) {
     updateElement('feels-like', `${feels} °`);
-    updateElement('pressure', pressure);
-    updateElement('humidity', humidity);
+    updateElement('pressure', `${pressure} hPa`);
+    updateElement('humidity', `${humidity}%`);
 }
 
 function updateWind(degree, speed) {
-    updateElement('wind-degree', degree);
-    updateElement('wind-speed', speed);
+    updateElement('wind-degree', `${degree} °`);
+    updateElement('wind-speed', `${speed} km/h`);
 }
 
 function updateMain(location, weather, description, temperature) {

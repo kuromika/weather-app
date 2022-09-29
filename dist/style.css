@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 
 :root{
-    --background-color: #2e3643;
-    --font-color: #edf4f9;
+    --background-color: #edf4f9
+    --font-color: #2e3643;
 }
 
 *{
@@ -14,19 +14,23 @@
 }
 
 body{
+    display: flex;
+    justify-content: center;
     height: 100vh;
-    background-color: var(--background-color);
+    background-image: url(./img/bg.jpg);
+    background-size: 100%;
 }
 
 main{
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5vw;
+    padding: 50px;
 }
 
 .main-info{
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,14 +40,14 @@ main{
 
 .additional-info{
     display: flex;
-    gap: 100px;
+    gap: 50px;
 }
 
 .conditions,
 .wind{
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 100px;
 }
 
 .info{
@@ -54,7 +58,7 @@ main{
 .info .text{
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .info .text span{
@@ -80,5 +84,76 @@ main{
 }
 
 .main-info input{
-    padding: 5px;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 15px;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+}   
+
+.main-info input{
+    outline-width: 0;
+}
+
+.main-info button{
+    border-radius: 10px;
+    height: 25px;
+    font-size: 15px;
+}
+
+.additional-info p{
+    font-weight: 900;
+    font-size: 25px;
+    white-space: nowrap;
+}
+
+.additional-info span{
+    font-weight: 700;
+    font-size: 20;
+}
+
+#location{
+    font-weight: 900;
+    font-size: 4vh;
+}
+
+#weather{
+    font-weight: 700;
+    font-size: 3vh;
+}
+
+#description{
+    font-weight: 600;
+    font-size: 2vh;
+}
+
+#temperature{
+    font-weight: 800;
+    font-size: 3vh;
+    margin-bottom: 20px;
+}
+
+#weather-img{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+
+@media screen and (max-width: 704px) {
+
+    body{
+        background-image: url(./img/bg2.jpg);
+        background-repeat: no-repeat;
+    }
+
+    main{
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .additional-info{
+        flex-direction: column;
+        gap: 100px;
+    }
 }
