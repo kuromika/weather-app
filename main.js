@@ -10,16 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/app.js":
-/*!********************!*\
-  !*** ./src/app.js ***!
-  \********************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _currentWeather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./currentWeather */ \"./src/currentWeather.js\");\n/* harmony import */ var _updateElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateElement */ \"./src/updateElement.js\");\n\n\n\n\nfunction updateConditions(feels, pressure, humidity) {\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('feels-like', `${feels} °`);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('pressure', pressure);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('humidity', humidity);\n}\n\nfunction updateWind(degree, speed) {\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('wind-degree', degree);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('wind-speed', speed);\n}\n\nfunction updateMain(location, weather, description, temperature) {\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('location', location);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('weather', weather);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('weather-img', null, `./img/${weather}.jpg`);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('description', description);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('temperature', `${temperature} °`);\n}\n\nasync function updatePage(location) {\n    const weather = await (0,_currentWeather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(location);\n    updateConditions(weather.feels, weather.pressure, weather.humidity);\n    updateWind(weather.windDegree, weather.windSpeed);\n    updateMain(weather.name, weather.weather, weather.description, weather.temperature);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updatePage);\n\n\n\n\n//# sourceURL=webpack://weather-app/./src/app.js?");
-
-/***/ }),
-
 /***/ "./src/currentWeather.js":
 /*!*******************************!*\
   !*** ./src/currentWeather.js ***!
@@ -36,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search */ \"./src/search.js\");\n\n\n\n(0,_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('cali, co');\n\n\n\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _updatePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updatePage */ \"./src/updatePage.js\");\n/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./search */ \"./src/search.js\");\n\n\n\n(0,_updatePage__WEBPACK_IMPORTED_MODULE_0__[\"default\"])('cali, co');\n\n\n\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?");
 
 /***/ }),
 
@@ -56,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \***********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./app */ \"./src/app.js\");\n\n\n\nconst searchButton = document.querySelector('#search-button');\n\nsearchButton.addEventListener('click', () => {\n    (0,_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(document.querySelector('#search-input').value);\n})\n\n\n\n//# sourceURL=webpack://weather-app/./src/search.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _updatePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./updatePage */ \"./src/updatePage.js\");\n\n\n\nconst searchButton = document.querySelector('#search-button');\n\nsearchButton.addEventListener('click', () => {\n    (0,_updatePage__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(document.querySelector('#search-input').value);\n})\n\n\n\n//# sourceURL=webpack://weather-app/./src/search.js?");
 
 /***/ }),
 
@@ -67,6 +57,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nfunction updateElement(id, text, src) {\n    const element = document.getElementById(id);\n    if (!src) {\n        element.textContent = text;\n    } else {\n        element.src = src;\n    }\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updateElement);\n\n//# sourceURL=webpack://weather-app/./src/updateElement.js?");
+
+/***/ }),
+
+/***/ "./src/updatePage.js":
+/*!***************************!*\
+  !*** ./src/updatePage.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _currentWeather__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./currentWeather */ \"./src/currentWeather.js\");\n/* harmony import */ var _updateElement__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./updateElement */ \"./src/updateElement.js\");\n\n\n\n\nfunction updateConditions(feels, pressure, humidity) {\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('feels-like', `${feels} °`);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('pressure', pressure);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('humidity', humidity);\n}\n\nfunction updateWind(degree, speed) {\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('wind-degree', degree);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('wind-speed', speed);\n}\n\nfunction updateMain(location, weather, description, temperature) {\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('location', location);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('weather', weather);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('weather-img', null, `./img/${weather}.jpg`);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('description', description);\n    (0,_updateElement__WEBPACK_IMPORTED_MODULE_1__[\"default\"])('temperature', `${temperature} °`);\n}\n\nasync function updatePage(location) {\n    const weather = await (0,_currentWeather__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(location);\n    updateConditions(weather.feels, weather.pressure, weather.humidity);\n    updateWind(weather.windDegree, weather.windSpeed);\n    updateMain(weather.name, weather.weather, weather.description, weather.temperature);\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (updatePage);\n\n\n\n\n//# sourceURL=webpack://weather-app/./src/updatePage.js?");
 
 /***/ })
 
