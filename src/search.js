@@ -1,5 +1,5 @@
 
-import updatePage  from "./app";
+import updatePage  from "./updatePage";
 
 const searchButton = document.querySelector('#search-button');
 

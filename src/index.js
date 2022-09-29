@@ -1,4 +1,4 @@
-import updatePage from "./app";
+import updatePage from "./updatePage";
 import './search'
 
 updatePage('cali, co');
