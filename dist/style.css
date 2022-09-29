@@ -78,7 +78,7 @@ main{
 
 .main-info button,
 .main-info input{
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.025);
     width: 100%;
 }
 
