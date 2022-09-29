@@ -16,9 +16,9 @@ function updateWind(degree, speed) {
 function updateMain(location, weather, description, temperature) {
     updateElement('location', location);
     updateElement('weather', weather);
-    updateElement('weather-img', null, `./img/${weather}.jpg`);
+    updateElement('weather-img', null, `./img/${weather}.png`);
     updateElement('description', description);
-    updateElement('temperature', `${temperature} °`);
+    updateElement('temperature', `${temperature} °C`);
 }
 
 async function updatePage(location) {
