@@ -1,4 +1,7 @@
-import CurrentWeather from "./currentWeather";
+import updatePage from "./app";
+import './search'
 
-const tokyo = CurrentWeather('tokyo');
+updatePage('cali, co');
+
+
 
