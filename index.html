@@ -10,11 +10,7 @@
 </head>
 <body>
     <main>
-        <div class="left-side info">
-            <p>Feels like: <span id="feels-like"></span></p>
-            <p>Pressure: <span id="pressure"></span></p>
-            <p>Humidity: <span id="humidity"></span></p>
-        </div>
+       
 
         <div class="main-info">
             <p id="location"></p>
@@ -22,13 +18,45 @@
             <img src="#" alt="weather image" id="weather-img">
             <p id="description"></p>
             <p id="temperature"></p>
-            <input type="text"id="search-input">
+            <input type="text"id="search-input" placeholder="City">
             <button type="button" id="search-button">search</button>
         </div>
 
-        <div class="right-side info">
-            <p>Wind degree: <span id="wind-degree"></span></p>
-            <p>Wind speed: <span id="wind-speed"></span></p>
+        <div class="additional-info">
+            <div class="conditions">
+               <div class="info">
+                   <img src="./img/feels.png" alt="">
+                    <div class="text">
+                        <p>Feels like</p><span id="feels-like"></span>
+                    </div>
+               </div>
+                <div class="info">
+                    <img src="./img/pressure.png" alt="">
+                    <div class="text">
+                        <p>Pressure</p><span id="pressure"></span>
+                    </div>
+                </div>
+                <div class="info">
+                    <img src="./img/humidity.png" alt="">
+                    <div class="text">
+                        <p>Humidity</p><span id="humidity"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="wind">
+                <div class="info">
+                    <img src="./img/wind-degree.png" alt="">
+                    <div class="text">
+                        <p>Wind degree</p><span id="wind-degree"></span>
+                    </div>
+                </div>
+                <div class="info">
+                    <img src="./img/wind-speed.png" alt="">
+                    <div class="text">
+                        <p>Wind speed</p> <span id="wind-speed"></span>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
